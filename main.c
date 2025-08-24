@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define GT_IMPLEMENTATION
-#include "gt.h"
-
 #define STUI_IMPLEMENTATION
 #include "stui.h"
 
@@ -93,8 +90,6 @@ void GapBuffer_right(GapBuffer* buf){
 }
 
 int main(){
-    gtinit();
-
     stui_term_disable_echo();
     stui_term_enable_instant();
 
@@ -140,7 +135,6 @@ int main(){
         if(text1) stui_goto(cur_x, cur_y);
         else stui_goto(anchor_x,anchor_y);
 
-        gtblockfd(fileno(stdin), GTBLOCKIN);
         char c = stui_get_key();
         if(c == STUI_KEY_ESC) break;
         if(c == STUI_KEY_LEFT) {
