@@ -70,13 +70,17 @@ void GapBuffer_insert_char(GapBuffer* buf, char c){
 }
 
 void GapBuffer_backspace(GapBuffer* buf){
-    if(buf->gap_begin) buf->gap_begin--;
-    buf->count--;
+    if(buf->gap_begin) {
+        buf->gap_begin--;
+        buf->count--;
+    }
 }
 
 void GapBuffer_delete(GapBuffer* buf){
-    if(buf->gap_end < buf->cap) buf->gap_end++;
-    buf->count--;
+    if(buf->gap_end < buf->cap) {
+        buf->gap_end++;
+        buf->count--;
+    }
 }
 
 void GapBuffer_left(GapBuffer* buf){
