@@ -128,11 +128,11 @@ int main(){
         draw_text(anchor_x, anchor_y, buf, width, height, &anchor_x, &anchor_y);
 
         size_t cur_x = anchor_x, cur_y = anchor_y;
-        if(text1) draw_text_len(anchor_x, anchor_y, text1, n1, width, height, &cur_x, &cur_y);
-        if(text2) draw_text_len(cur_x, cur_y, text2, n2, width, height, NULL, NULL);
+        if(n1) draw_text_len(anchor_x, anchor_y, text1, n1, width, height, &cur_x, &cur_y);
+        if(n2) draw_text_len(cur_x, cur_y, text2, n2, width, height, NULL, NULL);
 
         stui_refresh();
-        if(text1) stui_goto(cur_x, cur_y);
+        if(n1) stui_goto(cur_x, cur_y);
         else stui_goto(anchor_x,anchor_y);
 
         char c = stui_get_key();
